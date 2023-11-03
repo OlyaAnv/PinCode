@@ -8,7 +8,7 @@
 
     <TextView
         android:id="@+id/tvDel"
-        style="@style/number_button"
+        style="@style/NumberButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/delete"
@@ -17,7 +17,7 @@
 
     <TextView
         android:id="@+id/tvOk"
-        style="@style/ok_button"
+        style="@style/OkButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/ok"
@@ -26,7 +26,7 @@
 
     <TextView
         android:id="@+id/tv0"
-        style="@style/number_button"
+        style="@style/NumberButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/_0"
@@ -36,7 +36,7 @@
 
     <TextView
         android:id="@+id/tv9"
-        style="@style/number_button"
+        style="@style/NumberButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="21dp"
@@ -46,7 +46,7 @@
 
     <TextView
         android:id="@+id/tv7"
-        style="@style/number_button"
+        style="@style/NumberButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/_7"
@@ -55,7 +55,7 @@
 
     <TextView
         android:id="@+id/tv5"
-        style="@style/number_button"
+        style="@style/NumberButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/_5"
@@ -65,7 +65,7 @@
 
     <TextView
         android:id="@+id/tv6"
-        style="@style/number_button"
+        style="@style/NumberButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/_6"
@@ -74,7 +74,7 @@
 
     <TextView
         android:id="@+id/tv4"
-        style="@style/number_button"
+        style="@style/NumberButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/_4"
@@ -83,7 +83,7 @@
 
     <TextView
         android:id="@+id/tv3"
-        style="@style/number_button"
+        style="@style/NumberButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -108,7 +108,7 @@
 
     <TextView
         android:id="@+id/tv1"
-        style="@style/number_button"
+        style="@style/NumberButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -118,7 +118,7 @@
 
     <TextView
         android:id="@+id/tv2"
-        style="@style/number_button"
+        style="@style/NumberButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -129,7 +129,7 @@
 
     <TextView
         android:id="@+id/tv8"
-        style="@style/number_button"
+        style="@style/NumberButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/_8"

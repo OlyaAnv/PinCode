@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="number_button">
+    <style name="NumberButton">
         <item name="android:height">@dimen/button_height</item>
         <item name="android:width">@dimen/button_width</item>
         <item name="android:background">@drawable/btn_selector</item>
@@ -12,7 +12,7 @@
         <item name="android:gravity">center</item>
     </style>
 
-    <style name="ok_button" parent="number_button">
+    <style name="OkButton" parent="NumberButton">
         <item name="android:background">@drawable/btn_ok_selector</item>
     </style>
 </resources>
