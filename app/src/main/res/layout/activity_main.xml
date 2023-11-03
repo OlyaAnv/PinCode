@@ -20,7 +20,7 @@
         style="@style/OkButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/ok"
+        android:text="@android:string/ok"
         app:layout_constraintStart_toEndOf="@+id/tv0"
         app:layout_constraintTop_toBottomOf="@+id/tv9" />
 
@@ -96,7 +96,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat"
-        android:text="@string/enter_code"
+        android:hint="@string/enter_code"
         android:textAlignment="center"
         android:textColor="@color/text_color"
         android:textSize="22sp"
@@ -113,6 +113,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="@string/_1"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/tv2"
         app:layout_constraintTop_toBottomOf="@+id/tv_title" />
 
