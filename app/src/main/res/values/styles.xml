@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="number_button">
+        <item name="android:height">@dimen/button_height</item>
+        <item name="android:width">@dimen/button_width</item>
+        <item name="android:background">@drawable/btn_selector</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:textColor">@color/button_text_selector</item>
+        <item name="android:textSize">@dimen/text_size</item>
+        <item name="android:layout_margin">@dimen/button_margin</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="ok_button" parent="number_button">
+        <item name="android:background">@drawable/btn_ok_selector</item>
+    </style>
+</resources>
