@@ -15,4 +15,11 @@
     <style name="OkButton" parent="NumberButton">
         <item name="android:background">@drawable/btn_ok_selector</item>
     </style>
+
+    <style name="ResetButton">
+        <item name="android:background">@drawable/btn_selector</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:textColor">@color/button_text_selector</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+    </style>
 </resources>

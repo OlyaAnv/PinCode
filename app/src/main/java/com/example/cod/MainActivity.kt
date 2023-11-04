@@ -1,22 +1,37 @@
 package com.example.cod
 
+import android.app.Activity
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import com.example.cod.databinding.ActivityMainBinding
 
-private const val CORRECT_CODE_STRING = "1567"
-private const val CODE_LENGTH = 4
 private const val KEY_PINCODE = "PINCODE"
 private const val KEY_COLOR = "COLOR"
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private var correctСode = "1567"
     private var pinCodeString = ""
     private var rightColor = Color.GREEN
     private var errorColor = Color.RED
     private var normalColor = Color.GRAY
+
+    private val resultActivityResult: ActivityResultLauncher<Intent> =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+            if (it.resultCode == Activity.RESULT_OK) {
+                val isToast = it.data?.getBooleanExtra(EXTRA_IS_TOAST, false) ?: false
+                if (isToast)
+                    Toast.makeText(this, getString(R.string.welcome_back), Toast.LENGTH_SHORT)
+                        .show()
+            }
+            pinCodeString = ""
+            showCodeOnScreen()
+        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,7 +74,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun initOkButton() {
         binding.tvOk.setOnClickListener {
-            if (pinCodeString.length >= CODE_LENGTH)
+            if (pinCodeString.length >= correctСode.length)
                 checkCode()
         }
     }
@@ -83,10 +98,10 @@ class MainActivity : AppCompatActivity() {
         outState.putInt(KEY_COLOR, binding.tvTitle.currentTextColor)
     }
 
-    private fun isCodeCorrect(): Boolean = (pinCodeString == CORRECT_CODE_STRING)
+    private fun isCodeCorrect(): Boolean = (pinCodeString == correctСode)
 
     private fun setCode(number: Int) {
-        if (pinCodeString.length < CODE_LENGTH) {
+        if (pinCodeString.length < correctСode.length) {
             pinCodeString += number.toString()
             showCodeOnScreen()
         }
@@ -94,7 +109,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun checkCode() {
         if (isCodeCorrect()) {
-            Toast.makeText(this, getString(R.string.correct_answer), Toast.LENGTH_SHORT).show()
+            Intent(this, SecretActivity::class.java).let {
+                it.putExtra(EXTRA_PIN_CODE, pinCodeString)
+                resultActivityResult.launch(it)
+            }
             binding.tvTitle.setTextColor(rightColor)
         } else {
             binding.tvTitle.setTextColor(errorColor)

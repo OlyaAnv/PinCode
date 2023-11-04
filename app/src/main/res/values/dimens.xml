@@ -4,4 +4,5 @@
     <dimen name="button_width">81dp</dimen>
     <dimen name="button_margin">20dp</dimen>
     <dimen name="text_size">22sp</dimen>
+    <dimen name="text_size_small">16sp</dimen>
 </resources>
