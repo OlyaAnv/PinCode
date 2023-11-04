@@ -8,10 +8,12 @@ import com.example.cod.databinding.ActivityMainBinding
 
 private const val CORRECT_CODE_STRING = "1567"
 private const val CODE_LENGTH = 4
+private const val KEY_PINCODE = "PINCODE"
+private const val KEY_COLOR = "COLOR"
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private var codeString = ""
+    private var pinCodeString = ""
     private var rightColor = Color.GREEN
     private var errorColor = Color.RED
     private var normalColor = Color.GRAY
@@ -35,22 +37,20 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun checkBundle(savedInstanceState: Bundle?) {
-        if (savedInstanceState != null) {
-            binding.tvTitle.setTextColor(savedInstanceState.getInt("colorKey"))
-            codeString = savedInstanceState.getString("stringKey") ?: ""
-
-            if (codeString.isNotEmpty())
-                showCodeOnScreen()
-//            else
-//                showTitleOnScreen()
+        savedInstanceState?.getInt(KEY_COLOR)?.let {
+            binding.tvTitle.setTextColor(it)
+        }
+        savedInstanceState?.getString(KEY_PINCODE)?.let {
+            pinCodeString = it
+            showCodeOnScreen()
         }
     }
 
     private fun initDelButton() {
         binding.tvDel.setOnClickListener {
-            if (codeString.isNotEmpty()) {
+            if (pinCodeString.isNotEmpty()) {
                 //codeString = codeString.substring(0, codeString.length - 1)
-                codeString = codeString.dropLast(1)
+                pinCodeString = pinCodeString.dropLast(1)
                 binding.tvTitle.setTextColor(normalColor)
                 showCodeOnScreen()
             }
@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun initOkButton() {
         binding.tvOk.setOnClickListener {
-            if (codeString.length >= CODE_LENGTH)
+            if (pinCodeString.length >= CODE_LENGTH)
                 checkCode()
         }
     }
@@ -79,15 +79,15 @@ class MainActivity : AppCompatActivity() {
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putString("stringKey", codeString)
-        outState.putInt("colorKey", binding.tvTitle.currentTextColor)
+        outState.putString(KEY_PINCODE, pinCodeString)
+        outState.putInt(KEY_COLOR, binding.tvTitle.currentTextColor)
     }
 
-    private fun isCodeCorrect(): Boolean = (codeString == CORRECT_CODE_STRING)
+    private fun isCodeCorrect(): Boolean = (pinCodeString == CORRECT_CODE_STRING)
 
     private fun setCode(number: Int) {
-        if (codeString.length < CODE_LENGTH) {
-            codeString += number.toString()
+        if (pinCodeString.length < CODE_LENGTH) {
+            pinCodeString += number.toString()
             showCodeOnScreen()
         }
     }
@@ -103,6 +103,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showCodeOnScreen() {
-        binding.tvTitle.text = codeString
+        binding.tvTitle.text = pinCodeString
     }
 }
