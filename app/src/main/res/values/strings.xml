@@ -16,4 +16,9 @@
     <string name="secret_str">Pin code: %s</string>
     <string name="set_toast">Назад + сообщение</string>
     <string name="set_old">Просто назад</string>
+    <string name="call">Позвонить</string>
+    <string name="mail">Отправить по почте</string>
+    <string name="share">Поделиться</string>
+    <string name="camera">Запустить камеру</string>
+    <string name="browser">браузер</string>
 </resources>
